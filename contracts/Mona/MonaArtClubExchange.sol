@@ -4,6 +4,7 @@ pragma solidity ^0.8.0;
 
 import "./ECDSAUpgradeable.sol";
 import "./OwnableUpgradeable.sol";
+import "./IERC721.sol";
 
 contract MonaArtClubExchange is Initializable, OwnableUpgradeable {
 
@@ -36,12 +37,13 @@ contract MonaArtClubExchange is Initializable, OwnableUpgradeable {
 
     function buyNFT(bytes calldata memberSig, bytes calldata orderSig, Order calldata order) external payable {
         require(isMember(msg.sender, memberSig));
-        require(msg.value == order.price);
-        require(order.expirationTimestamp >= block.timestamp);
-        require(!usedSigs[orderSig]);
+        require(msg.value == order.price, "incorect eth amount payed!");
+        require(order.expirationTimestamp >= block.timestamp, "order expired!");
+        require(!usedSigs[orderSig], "order sig already used!");
         require(owner() == ECDSAUpgradeable.recover(ECDSAUpgradeable.toEthSignedMessageHash(keccak256(abi.encodePacked(order.tokenContract, order.expirationTimestamp, order.tokenId, order.price, order.nonce))), orderSig));
 
-        
+        usedSigs[orderSig] = true;
+        IERC721(order.tokenContract).safeTransferFrom(address(this), msg.sender, order.tokenId);
 
     }
 
@@ -54,6 +56,14 @@ contract MonaArtClubExchange is Initializable, OwnableUpgradeable {
     //         order.price
     //     ));
     // }
+
+    function transferNFT(address tokenContract, uint id, address to) external onlyOwner {
+        IERC721(tokenContract).safeTransferFrom(address(this), to, id);
+    }
+
+    function getMsgHash(Order calldata order) external pure returns(bytes32) {
+        return keccak256(abi.encodePacked(order.tokenContract, order.expirationTimestamp, order.tokenId, order.price, order.nonce));
+    }
 
     function withdraw() external onlyOwner {
         (bool success, ) = payable(msg.sender).call{value: address(this).balance, gas: 2600}("");
