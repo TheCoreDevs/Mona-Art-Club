@@ -2,3 +2,4 @@ test
 build
 migrations
 .vscode
+_contracts
