@@ -74,10 +74,17 @@ contract MonaArtClubGallery is Initializable, OwnableUpgradeable {
 
         // split payments
         uint eth = msg.value - ((msg.value * 25) / 1000);
+        uint artistAmount = (eth * artist.percnetage) / 10_000;
         bool success;
 
-        (success, ) = payable(msg.sender).call{value: (eth * artist.percnetage) / 10_000, gas: 2600}("");
-        require(success, "Failed To Send Ether! User has reverted!");
+        (success, ) = payable(artist.addr).call{value: artistAmount, gas: 2600}(""); // artist
+        require(success, "Failed To Send Ether to artist! User has reverted!");
+
+        eth = msg.value - artistAmount;
+        (success, ) = payable(msg.sender).call{value: artistAmount, gas: 2600}(""); // F5
+        require(success, "Failed To Send Ether to F5! User has reverted!");
+        (success, ) = payable(msg.sender).call{value: artistAmount, gas: 2600}(""); // Mona
+        require(success, "Failed To Send Ether to Mona! User has reverted!");
 
         // complete listing and transfer token
         _onChainListingsCompleted[onChainListingId] = true;
