@@ -3,3 +3,5 @@ build
 migrations
 .vscode
 _contracts
+truffle-config.js
+node_modules
