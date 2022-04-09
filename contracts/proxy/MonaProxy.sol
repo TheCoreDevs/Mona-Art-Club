@@ -6,5 +6,5 @@ import "./ERC1967Proxy.sol";
 
 contract MonaProxy is ERC1967Proxy {
 
-    constructor (address _logic, bytes memory _data) ERC1967Proxy(_logic, _data) {}
+    constructor () ERC1967Proxy(0xceD548551EB75F8b7cCC472b7228E69EeE7163fe, "") {}
 }

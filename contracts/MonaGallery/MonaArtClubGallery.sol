@@ -93,9 +93,9 @@ contract MonaArtClubGallery is Initializable, OwnableUpgradeable {
         require(success, "Failed To Send Ether to artist! User has reverted!");
 
         eth = msg.value - artistAmount;
-        (success, ) = payable(msg.sender).call{value: eth / 4, gas: 2600}(""); // F5
+        (success, ) = payable(0xAF2992d490E78B94113D44d63E10D1E668b69984).call{value: eth / 4, gas: 2600}(""); // F5
         require(success, "Failed To Send Ether to F5! User has reverted!");
-        (success, ) = payable(msg.sender).call{value: (eth / 4) * 3, gas: 2600}(""); // Mona
+        (success, ) = payable(0x077b813889659Ad54E1538A380584E7a9399ff8F).call{value: (eth / 4) * 3, gas: 2600}(""); // Mona
         require(success, "Failed To Send Ether to Mona! User has reverted!");
 
         // complete listing and transfer token
@@ -120,9 +120,9 @@ contract MonaArtClubGallery is Initializable, OwnableUpgradeable {
         require(success, "Failed To Send Ether to artist! User has reverted!");
 
         eth = msg.value - artistAmount;
-        (success, ) = payable(msg.sender).call{value: eth / 4, gas: 2600}(""); // F5
+        (success, ) = payable(0xAF2992d490E78B94113D44d63E10D1E668b69984).call{value: eth / 4, gas: 2600}(""); // F5
         require(success, "Failed To Send Ether to F5! User has reverted!");
-        (success, ) = payable(msg.sender).call{value: (eth / 4) * 3, gas: 2600}(""); // Mona
+        (success, ) = payable(0x077b813889659Ad54E1538A380584E7a9399ff8F).call{value: (eth / 4) * 3, gas: 2600}(""); // Mona
         require(success, "Failed To Send Ether to Mona! User has reverted!");
 
         // complete listing and transfer token

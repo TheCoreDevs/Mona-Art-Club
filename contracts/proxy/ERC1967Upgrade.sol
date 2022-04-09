@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 // OpenZeppelin Contracts (last updated v4.5.0) (proxy/ERC1967/ERC1967Upgrade.sol)
 
-pragma solidity ^0.8.2;
+pragma solidity ^0.8.0;
 
 import "./IBeacon.sol";
 import "./draft-IERC1822.sol";
@@ -14,7 +14,6 @@ import "./StorageSlot.sol";
  *
  * _Available since v4.1._
  *
- * @custom:oz-upgrades-unsafe-allow delegatecall
  */
 abstract contract ERC1967Upgrade {
     // This is the keccak-256 hash of "eip1967.proxy.rollback" subtracted by 1
