@@ -5,7 +5,7 @@ import "./ERC721.sol";
 import "./ECDSA.sol";
 import "./IERC2981.sol";
 
-contract MonaArtistsMint is Initializable, Ownable, IERC2981, ERC721 {
+contract MonaArtistContract is Initializable, Ownable, IERC2981, ERC721 {
 
     uint private EIP2981RoyaltyPercent;
 
@@ -22,10 +22,10 @@ contract MonaArtistsMint is Initializable, Ownable, IERC2981, ERC721 {
     ) external initializer {
         __Ownable_init();
         __ERC721_init(_openseaProxyRegistry, name_);
-        __Sales_init(royalty, royaltyAddress, _monaExchangeAddress);
+        __MonaArtistContract_init(royalty, royaltyAddress, _monaExchangeAddress);
     }
 
-    function __Sales_init(
+    function __MonaArtistContract_init(
         uint royalty,
         address royaltyAddress,
         address _monaExchangeAddress
