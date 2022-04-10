@@ -17,8 +17,8 @@ contract MonaArtistContractFactory {
         _;
     }
 
-    constructor() {
-        implementation = 0x0000AD203E62A87dBDB5b9BBd8d8B5B7713C59e0; // mona artist beacon proxy
+    constructor(address _implementation) {
+        implementation = _implementation;
         owner = msg.sender;
     }
 
