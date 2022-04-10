@@ -41,12 +41,16 @@ contract MonaArtClubGallery is Initializable, OwnableUpgradeable {
     OnChainListing[] public onChainListings;
     OnChainExternalNFTListing[] public onChainExternalNFTListings;
 
+    uint public activeOnChainListings;
+    uint public activeExternalOnChainListings;
 
-    event NewArtist(Artist indexed artist, uint id);
-    event NewOnChainListing(OnChainListing listing, uint id);
 
-    function initialize(bytes32 orderTypeHash) external initializer {
-        ORDER_TYPEHASH = orderTypeHash;
+    event NewArtist(address tokenContract, address addr, uint percnetage, uint artistId);
+    event NewOnChainListing(uint32 expirationTimestamp, uint artistId, uint tokenId, uint price, uint listingId);
+    event NewExternalOnChainListing(address tokenContract, address artistAddr, uint tokenId, uint price, uint expirationTimestamp, uint externalListingId);
+
+    function initialize(uint8 version) external reinitializer(version) {
+        // ORDER_TYPEHASH = orderTypeHash;
         __Ownable_init();
     }
 
@@ -100,6 +104,7 @@ contract MonaArtClubGallery is Initializable, OwnableUpgradeable {
 
         // complete listing and transfer token
         _onChainListingsCompleted[onChainListingId] = true;
+        activeOnChainListings--;
         IERC721(artist.tokenContract).safeTransferFrom(address(this), msg.sender, listing.tokenId);
     }
 
@@ -127,26 +132,81 @@ contract MonaArtClubGallery is Initializable, OwnableUpgradeable {
 
         // complete listing and transfer token
         _ExternalOnChainListingsCompleted[externalOnChainListingId] = true;
+        activeExternalOnChainListings--;
         IERC721(listing.tokenContract).safeTransferFrom(address(this), msg.sender, listing.tokenId);
     }
 
     function cancelOnChainListing(uint onChainListingId) external onlyOwner {
         require(onChainListingId < onChainListings.length, "On chain listing does not exist!");
+        require(!_onChainListingsCompleted[onChainListingId], "Already Completed Or Canceled!");
         _onChainListingsCompleted[onChainListingId] = true;
+        activeOnChainListings--;
     }
 
-    function onChainListNFT(OnChainListing calldata newListing) external onlyOwner {
-        onChainListings.push(newListing);
-        emit NewOnChainListing(newListing, onChainListings.length - 1);
+    function cancelOnChainExternalListing(uint onChainExternalListingId) external onlyOwner {
+        require(onChainExternalListingId < onChainListings.length, "On chain listing does not exist!");
+        require(!_ExternalOnChainListingsCompleted[onChainExternalListingId], "Already Completed Or Canceled!");
+        _ExternalOnChainListingsCompleted[onChainExternalListingId] = true;
+        activeExternalOnChainListings--;
+
     }
 
-    function addArtist(Artist calldata artist) external onlyOwner {
-        artists.push(artist);
-        emit NewArtist(artist, artists.length - 1);
+    function onChainListNFT(uint32 expirationTimestamp, uint artistId, uint tokenId, uint price) external onlyOwner {
+        onChainListings.push(OnChainListing(expirationTimestamp, artistId, tokenId, price));
+        activeOnChainListings++;
+        emit NewOnChainListing(expirationTimestamp, artistId, tokenId, price, onChainListings.length - 1);
     }
 
-    function getArtist(uint id) external view returns (Artist memory) {
-        return artists[id];
+    function onChainListExternalNFT(address tokenContract, address artistAddr, uint tokenId, uint price, uint expirationTimestamp) external onlyOwner {
+        onChainExternalNFTListings.push(OnChainExternalNFTListing(tokenContract, artistAddr, tokenId, price, expirationTimestamp));
+        activeExternalOnChainListings++;
+        emit NewExternalOnChainListing(tokenContract, artistAddr, tokenId, price, expirationTimestamp, onChainExternalNFTListings.length - 1);
+    }
+
+    function addArtist(address tokenContract, address addr, uint percnetage) external onlyOwner {
+        artists.push(Artist(tokenContract, addr, percnetage));
+        emit NewArtist(tokenContract, addr, percnetage, artists.length - 1);
+    }
+
+    function getArtist(uint id) external view returns (address tokenContract, address addr, uint percnetage) {
+        Artist memory artist = artists[id];
+        return (artist.tokenContract, artist.addr, artist.percnetage);
+    }
+
+    function getOnChainListing(uint id) external view returns(uint32 expirationTimestamp, uint artistId, uint tokenId, uint price) {
+        OnChainListing memory listing = onChainListings[id];
+        return (listing.expirationTimestamp, listing.artistId, listing.tokenId, listing.price);
+    }
+
+    function getOnChainExternalNFTListing(uint id) external view returns(address tokenContract, address artistAddr, uint tokenId, uint price, uint expirationTimestamp) {
+        OnChainExternalNFTListing memory listing = onChainExternalNFTListings[id];
+        return (listing.tokenContract, listing.artistAddr, listing.tokenId, listing.price, listing.expirationTimestamp);
+    }
+
+    function getAllActiveOnChainListingIds() external view returns(uint[] memory) {
+        uint[] memory listings = new uint[](activeOnChainListings);
+        uint x;
+
+        for (uint i; i < onChainListings.length; i++) {
+            if (!_onChainListingsCompleted[i]) {
+                listings[x] = i;
+                x++;
+            }
+        }
+        return listings;
+    }
+
+    function getAllActiveOnChainExternalListingIds() external view returns(uint[] memory) {
+        uint[] memory listings = new uint[](activeExternalOnChainListings);
+        uint x;
+
+        for (uint i; i < onChainExternalNFTListings.length; i++) {
+            if (!_ExternalOnChainListingsCompleted[i]) {
+                listings[x] = i;
+                x++;
+            }
+        }
+        return listings;
     }
     
     // function hashStruct(Order memory order) private pure returns (bytes32 hash) {
