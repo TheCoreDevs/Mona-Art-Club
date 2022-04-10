@@ -6,7 +6,7 @@ import "./ECDSA.sol";
 import "./Ownable.sol";
 import "./IERC721.sol";
 
-contract MonaArtClubGallery is Ownable {
+contract MonaGallery is Ownable {
 
     struct OnChainListing {
         uint32 expirationTimestamp;
