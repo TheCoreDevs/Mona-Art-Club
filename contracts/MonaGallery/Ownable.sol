@@ -3,9 +3,6 @@
 
 pragma solidity ^0.8.0;
 
-import "./ContextUpgradeable.sol";
-import "./Initializable.sol";
-
 /**
  * @dev Contract module which provides a basic access control mechanism, where
  * there is an account (an owner) that can be granted exclusive access to
@@ -18,7 +15,7 @@ import "./Initializable.sol";
  * `onlyOwner`, which can be applied to your functions to restrict their use to
  * the owner.
  */
-abstract contract OwnableUpgradeable is Initializable, ContextUpgradeable {
+abstract contract Ownable {
     address private _owner;
 
     event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);
@@ -26,12 +23,8 @@ abstract contract OwnableUpgradeable is Initializable, ContextUpgradeable {
     /**
      * @dev Initializes the contract setting the deployer as the initial owner.
      */
-    function __Ownable_init() internal onlyInitializing {
-        __Ownable_init_unchained();
-    }
-
-    function __Ownable_init_unchained() internal onlyInitializing {
-        _transferOwnership(_msgSender());
+    constructor() {
+        _transferOwnership(msg.sender);
     }
 
     /**
@@ -45,7 +38,7 @@ abstract contract OwnableUpgradeable is Initializable, ContextUpgradeable {
      * @dev Throws if called by any account other than the owner.
      */
     modifier onlyOwner() {
-        require(owner() == _msgSender(), "Ownable: caller is not the owner");
+        require(owner() == msg.sender, "Ownable: caller is not the owner");
         _;
     }
 
@@ -78,11 +71,4 @@ abstract contract OwnableUpgradeable is Initializable, ContextUpgradeable {
         _owner = newOwner;
         emit OwnershipTransferred(oldOwner, newOwner);
     }
-
-    /**
-     * @dev This empty reserved space is put in place to allow future versions to add new
-     * variables without shifting down storage in the inheritance chain.
-     * See https://docs.openzeppelin.com/contracts/4.x/upgradeable#storage_gaps
-     */
-    uint256[49] private __gap;
 }

@@ -2,11 +2,11 @@
 
 pragma solidity ^0.8.0;
 
-import "./ECDSAUpgradeable.sol";
-import "./OwnableUpgradeable.sol";
+import "./ECDSA.sol";
+import "./Ownable.sol";
 import "./IERC721.sol";
 
-contract MonaArtClubGallery is Initializable, OwnableUpgradeable {
+contract MonaArtClubGallery is Ownable {
 
     struct OnChainListing {
         uint32 expirationTimestamp;
@@ -30,8 +30,6 @@ contract MonaArtClubGallery is Initializable, OwnableUpgradeable {
         uint expirationTimestamp;
     }
 
-    bytes32 public ORDER_TYPEHASH; // = keccak256("Order(address tokenContract,uint32 expirationTimestamp,uint tokenId,uint price)");
-
     mapping(bytes => bool) usedSigs;
     mapping(uint => bool) _onChainListingsCompleted;
     mapping(uint => bool) _ExternalOnChainListingsCompleted;
@@ -48,15 +46,11 @@ contract MonaArtClubGallery is Initializable, OwnableUpgradeable {
     event NewArtist(address tokenContract, address addr, uint percnetage, uint artistId);
     event NewOnChainListing(uint32 expirationTimestamp, uint artistId, uint tokenId, uint price, uint listingId);
     event NewExternalOnChainListing(address tokenContract, address artistAddr, uint tokenId, uint price, uint expirationTimestamp, uint externalListingId);
-
-    function initialize(uint8 version) external reinitializer(version) {
-        // ORDER_TYPEHASH = orderTypeHash;
-        __Ownable_init();
-    }
+    
 
 /*
-    function _isMember(address user, bytes memory sig) private view returns(bool, ECDSAUpgradeable.RecoverError) {
-        (address result, ECDSAUpgradeable.RecoverError error) = ECDSAUpgradeable.tryRecover(ECDSAUpgradeable.toEthSignedMessageHash(keccak256(abi.encodePacked(user))), sig);
+    function _isMember(address user, bytes memory sig) private view returns(bool, ECDSA.RecoverError) {
+        (address result, ECDSA.RecoverError error) = ECDSA.tryRecover(ECDSA.toEthSignedMessageHash(keccak256(abi.encodePacked(user))), sig);
         return (owner() == result, error);
     }
 
@@ -72,7 +66,7 @@ contract MonaArtClubGallery is Initializable, OwnableUpgradeable {
         require(msg.value == order.price, "incorect eth amount payed!");
         require(order.expirationTimestamp >= block.timestamp, "order expired!");
         require(!usedSigs[orderSig], "order sig already used!");
-        require(owner() == ECDSAUpgradeable.recover(ECDSAUpgradeable.toEthSignedMessageHash(keccak256(abi.encodePacked([order.artistId], order.expirationTimestamp, order.tokenId, order.price, order.nonce))), orderSig));
+        require(owner() == ECDSA.recover(ECDSA.toEthSignedMessageHash(keccak256(abi.encodePacked([order.artistId], order.expirationTimestamp, order.tokenId, order.price, order.nonce))), orderSig));
 
         usedSigs[orderSig] = true;
         IERC721(order.tokenContract).safeTransferFrom(address(this), msg.sender, order.tokenId);

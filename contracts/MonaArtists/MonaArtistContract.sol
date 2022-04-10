@@ -13,6 +13,8 @@ contract MonaArtistContract is Initializable, Ownable, IERC2981, ERC721 {
 
     address public monaExchangeAddress;
 
+    address public newContract;
+
     function initialize(
         uint royalty, 
         address royaltyAddress,
@@ -41,6 +43,11 @@ contract MonaArtistContract is Initializable, Ownable, IERC2981, ERC721 {
 
     function mint(string memory uri) external onlyOwner {
         _mint(monaExchangeAddress, uri);
+    }
+
+    function _burnToMigrate(uint tokenId) external {
+        require(msg.sender == newContract);
+        _burn(tokenId);
     }
 
     /**
