@@ -9,7 +9,7 @@ import "../IERC721.sol";
 contract MonaGallery is Ownable {
 
     struct OnChainListing {
-        uint32 expirationTimestamp;
+        uint expirationTimestamp;
         uint artistId;
         uint tokenId;
         uint price;
@@ -44,40 +44,13 @@ contract MonaGallery is Ownable {
 
 
     event NewArtist(address tokenContract, address addr, uint percentage, uint artistId);
-    event NewOnChainListing(uint32 expirationTimestamp, uint artistId, uint tokenId, uint price, uint listingId);
+    event NewOnChainListing(uint expirationTimestamp, uint artistId, uint tokenId, uint price, uint listingId);
     event NewExternalOnChainListing(address tokenContract, address artistAddr, uint tokenId, uint price, uint expirationTimestamp, uint externalListingId);
-    
-
-/*
-    function _isMember(address user, bytes memory sig) private view returns(bool, ECDSA.RecoverError) {
-        (address result, ECDSA.RecoverError error) = ECDSA.tryRecover(ECDSA.toEthSignedMessageHash(keccak256(abi.encodePacked(user))), sig);
-        return (owner() == result, error);
-    }
-
-    function isMember(address user, bytes memory sig) public view returns(bool) {
-        (bool result, ) = _isMember(user, sig);
-        return result;
-    }
-*/
-
-/*
-    function buyNFT(bytes calldata memberSig, bytes calldata orderSig, Order calldata order) external payable {
-        require(isMember(msg.sender, memberSig));
-        require(msg.value == order.price, "incorect eth amount payed!");
-        require(order.expirationTimestamp >= block.timestamp, "order expired!");
-        require(!usedSigs[orderSig], "order sig already used!");
-        require(owner() == ECDSA.recover(ECDSA.toEthSignedMessageHash(keccak256(abi.encodePacked([order.artistId], order.expirationTimestamp, order.tokenId, order.price, order.nonce))), orderSig));
-
-        usedSigs[orderSig] = true;
-        IERC721(order.tokenContract).safeTransferFrom(address(this), msg.sender, order.tokenId);
-
-    }
-*/
 
     function buyNFT(uint onChainListingId) external payable {
         require(!_onChainListingsCompleted[onChainListingId], "Listing was completed or canceled!");
         OnChainListing memory listing = onChainListings[onChainListingId];
-        require(listing.expirationTimestamp >= block.timestamp, "Listing expired!");
+        require(uint(listing.expirationTimestamp) >= block.timestamp, "Listing expired!");
         require(listing.price == msg.value, "Ether amount incorrect!");
 
         Artist memory artist = artists[listing.artistId];
@@ -107,8 +80,6 @@ contract MonaGallery is Ownable {
         OnChainExternalNFTListing memory listing = onChainExternalNFTListings[externalOnChainListingId];
         require(listing.expirationTimestamp >= block.timestamp, "Listing expired!");
         require(listing.price == msg.value, "Ether amount incorrect!");
-
-        
 
         // split payments
         uint eth = msg.value - ((msg.value * 25) / 1000);
@@ -142,10 +113,9 @@ contract MonaGallery is Ownable {
         require(!_ExternalOnChainListingsCompleted[onChainExternalListingId], "Already Completed Or Canceled!");
         _ExternalOnChainListingsCompleted[onChainExternalListingId] = true;
         activeExternalOnChainListings--;
-
     }
 
-    function onChainListNFT(uint32 expirationTimestamp, uint artistId, uint tokenId, uint price) external onlyOwner {
+    function onChainListNFT(uint expirationTimestamp, uint artistId, uint tokenId, uint price) external onlyOwner {
         onChainListings.push(OnChainListing(expirationTimestamp, artistId, tokenId, price));
         activeOnChainListings++;
         emit NewOnChainListing(expirationTimestamp, artistId, tokenId, price, onChainListings.length - 1);
@@ -167,7 +137,7 @@ contract MonaGallery is Ownable {
         return (artist.tokenContract, artist.addr, artist.percentage);
     }
 
-    function getOnChainListing(uint id) external view returns(uint32 expirationTimestamp, uint artistId, uint tokenId, uint price) {
+    function getOnChainListing(uint id) external view returns(uint expirationTimestamp, uint artistId, uint tokenId, uint price) {
         OnChainListing memory listing = onChainListings[id];
         return (listing.expirationTimestamp, listing.artistId, listing.tokenId, listing.price);
     }
@@ -205,7 +175,7 @@ contract MonaGallery is Ownable {
     
     // function hashStruct(Order memory order) private pure returns (bytes32 hash) {
     //     return keccak256(abi.encode(
-    //         /* ORDER_TYPEHASH */ keccak256("Order(address tokenContract,uint32 expirationTimestamp,uint tokenId,uint price)"),
+    //         /* ORDER_TYPEHASH */ keccak256("Order(address tokenContract,uint expirationTimestamp,uint tokenId,uint price)"),
     //         order.tokenContract,
     //         order.expirationTimestamp,
     //         order.tokenId,
