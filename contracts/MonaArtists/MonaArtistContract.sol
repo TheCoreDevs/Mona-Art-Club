@@ -2,10 +2,9 @@
 pragma solidity ^0.8.0;
 
 import "./ERC721.sol";
-import "./ECDSA.sol";
 import "./IERC2981.sol";
 
-contract MonaArtistContract is Initializable, Ownable, IERC2981, ERC721 {
+contract MonaArtistContract is Initializable, IERC2981, ERC721 {
 
     uint private EIP2981RoyaltyPercent;
 

@@ -2,12 +2,12 @@
 
 pragma solidity ^0.8.0;
 
-import "./IERC721.sol";
+import "../IERC721.sol";
 import "./IERC721Receiver.sol";
 import "./IERC721Metadata.sol";
-import "./Ownable.sol";
-import "./Address.sol";
-import "./Strings.sol";
+import "./OwnableInitializable.sol";
+import "../Address.sol";
+import "../Strings.sol";
 import "./ERC165.sol";
 
 /**
@@ -15,7 +15,7 @@ import "./ERC165.sol";
  * the Metadata extension.
  * Made for efficiancy!
  */
-contract ERC721 is ERC165, IERC721, IERC721Metadata, Initializable, Ownable {
+contract ERC721 is ERC165, IERC721, IERC721Metadata, Initializable, OwnableInitializable {
     using Address for address;
     using Strings for uint256;
 

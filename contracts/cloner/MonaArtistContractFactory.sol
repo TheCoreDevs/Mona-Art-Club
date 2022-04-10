@@ -3,7 +3,7 @@
 pragma solidity ^0.8.0;
 
 import "./Cloner.sol";
-import "./ECDSA.sol";
+import "../ECDSA.sol";
 
 contract MonaArtistContractFactory {
 

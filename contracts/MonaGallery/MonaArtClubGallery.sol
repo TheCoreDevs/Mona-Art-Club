@@ -2,9 +2,9 @@
 
 pragma solidity ^0.8.0;
 
-import "./ECDSA.sol";
-import "./Ownable.sol";
-import "./IERC721.sol";
+import "../ECDSA.sol";
+import "../Ownable.sol";
+import "../IERC721.sol";
 
 contract MonaGallery is Ownable {
 
@@ -19,7 +19,7 @@ contract MonaGallery is Ownable {
     struct Artist {
         address tokenContract;
         address addr;
-        uint percnetage;
+        uint percentage;
     }
 
     struct OnChainExternalNFTListing {
@@ -43,7 +43,7 @@ contract MonaGallery is Ownable {
     uint public activeExternalOnChainListings;
 
 
-    event NewArtist(address tokenContract, address addr, uint percnetage, uint artistId);
+    event NewArtist(address tokenContract, address addr, uint percentage, uint artistId);
     event NewOnChainListing(uint32 expirationTimestamp, uint artistId, uint tokenId, uint price, uint listingId);
     event NewExternalOnChainListing(address tokenContract, address artistAddr, uint tokenId, uint price, uint expirationTimestamp, uint externalListingId);
     
@@ -84,7 +84,7 @@ contract MonaGallery is Ownable {
 
         // split payments
         uint eth = msg.value - ((msg.value * 25) / 1000);
-        uint artistAmount = (eth * artist.percnetage) / 10_000;
+        uint artistAmount = (eth * artist.percentage) / 10_000;
         bool success;
 
         (success, ) = payable(artist.addr).call{value: artistAmount, gas: 2600}(""); // artist
@@ -157,14 +157,14 @@ contract MonaGallery is Ownable {
         emit NewExternalOnChainListing(tokenContract, artistAddr, tokenId, price, expirationTimestamp, onChainExternalNFTListings.length - 1);
     }
 
-    function addArtist(address tokenContract, address addr, uint percnetage) external onlyOwner {
-        artists.push(Artist(tokenContract, addr, percnetage));
-        emit NewArtist(tokenContract, addr, percnetage, artists.length - 1);
+    function addArtist(address tokenContract, address addr, uint percentage) external onlyOwner {
+        artists.push(Artist(tokenContract, addr, percentage));
+        emit NewArtist(tokenContract, addr, percentage, artists.length - 1);
     }
 
-    function getArtist(uint id) external view returns (address tokenContract, address addr, uint percnetage) {
+    function getArtist(uint id) external view returns (address tokenContract, address addr, uint percentage) {
         Artist memory artist = artists[id];
-        return (artist.tokenContract, artist.addr, artist.percnetage);
+        return (artist.tokenContract, artist.addr, artist.percentage);
     }
 
     function getOnChainListing(uint id) external view returns(uint32 expirationTimestamp, uint artistId, uint tokenId, uint price) {
