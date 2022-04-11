@@ -130,7 +130,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [
@@ -149,7 +150,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [
@@ -173,7 +175,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -186,7 +189,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -199,7 +203,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -212,7 +217,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -225,7 +231,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [
@@ -244,7 +251,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -257,7 +265,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -359,7 +368,8 @@
         }
       ],
       "stateMutability": "pure",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [
@@ -378,7 +388,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -391,7 +402,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [
@@ -541,7 +553,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [
@@ -573,7 +586,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [
@@ -592,7 +606,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     }
   ],
   "metadata": "{\"compiler\":{\"version\":\"0.8.0+commit.c7dfd78e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"_owner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"_approved\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"_tokenId\",\"type\":\"uint256\"}],\"name\":\"Approval\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"_owner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"_operator\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bool\",\"name\":\"_approved\",\"type\":\"bool\"}],\"name\":\"ApprovalForAll\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"previousOwner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"_from\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"_to\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"_tokenId\",\"type\":\"uint256\"}],\"name\":\"Transfer\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"_burnToMigrate\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"approve\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"}],\"name\":\"balanceOf\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"getApproved\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"royalty\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"royaltyAddress\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_monaGalleryAddress\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_openseaProxyRegistry\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"name_\",\"type\":\"string\"}],\"name\":\"initialize\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"operator\",\"type\":\"address\"}],\"name\":\"isApprovedForAll\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"uri\",\"type\":\"string\"}],\"name\":\"mint\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"monaGalleryAddress\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"name\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"newContract\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"ownerOf\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"proxyRegistryAddress\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"renounceOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"salePrice\",\"type\":\"uint256\"}],\"name\":\"royaltyInfo\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"receiver\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"royaltyAmount\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"safeTransferFrom\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"},{\"internalType\":\"bytes\",\"name\":\"_data\",\"type\":\"bytes\"}],\"name\":\"safeTransferFrom\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"operator\",\"type\":\"address\"},{\"internalType\":\"bool\",\"name\":\"approved\",\"type\":\"bool\"}],\"name\":\"setApprovalForAll\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"addr\",\"type\":\"address\"}],\"name\":\"setMonaGalleryAddress\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"addr\",\"type\":\"address\"}],\"name\":\"setNewContractAddress\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"addr\",\"type\":\"address\"}],\"name\":\"setOpenseaProxyRegistry\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"setRoyaltyPercent\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes4\",\"name\":\"interfaceId\",\"type\":\"bytes4\"}],\"name\":\"supportsInterface\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"symbol\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"tokenURI\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"}],\"name\":\"tokensOfOwner\",\"outputs\":[{\"internalType\":\"uint256[]\",\"name\":\"\",\"type\":\"uint256[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"totalSupply\",\"outputs\":[{\"internalType\":\"uint16\",\"name\":\"\",\"type\":\"uint16\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"transferFrom\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"transferOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{\"approve(address,uint256)\":{\"details\":\"See {IERC721-approve}.\"},\"balanceOf(address)\":{\"details\":\"See {IERC721-balanceOf}.\"},\"getApproved(uint256)\":{\"details\":\"See {IERC721-getApproved}.\"},\"isApprovedForAll(address,address)\":{\"details\":\"See {IERC721-isApprovedForAll}.\"},\"name()\":{\"details\":\"See {IERC721Metadata-name}.\"},\"owner()\":{\"details\":\"Returns the address of the current owner.\"},\"ownerOf(uint256)\":{\"details\":\"See {IERC721-ownerOf}.\"},\"renounceOwnership()\":{\"details\":\"Leaves the contract without owner. It will not be possible to call `onlyOwner` functions anymore. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby removing any functionality that is only available to the owner.\"},\"royaltyInfo(uint256,uint256)\":{\"details\":\"Called with the sale price to determine how much royalty is owed and to whom.\",\"params\":{\"salePrice\":\"- the sale price of the NFT asset specified by `tokenId`\",\"tokenId\":\"- the NFT asset queried for royalty information\"},\"returns\":{\"receiver\":\"- address of who should be sent the royalty payment\",\"royaltyAmount\":\"- the royalty payment amount for `salePrice`\"}},\"safeTransferFrom(address,address,uint256)\":{\"details\":\"See {IERC721-safeTransferFrom}.\"},\"safeTransferFrom(address,address,uint256,bytes)\":{\"details\":\"See {IERC721-safeTransferFrom}.\"},\"setApprovalForAll(address,bool)\":{\"details\":\"See {IERC721-setApprovalForAll}.\"},\"setRoyaltyPercent(uint256)\":{\"details\":\"percentage is in bassis points (parts per 10,000). Example: 5% = 500, 0.5% = 50 \",\"params\":{\"amount\":\"- percent amount\"}},\"supportsInterface(bytes4)\":{\"details\":\"See {IERC165-supportsInterface}.\"},\"symbol()\":{\"details\":\"See {IERC721Metadata-symbol}.\"},\"tokenURI(uint256)\":{\"details\":\"See {IERC721Metadata-tokenURI}.\"},\"transferFrom(address,address,uint256)\":{\"details\":\"See {IERC721-transferFrom}.\"},\"transferOwnership(address)\":{\"details\":\"Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner.\"}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"royaltyInfo(uint256,uint256)\":{\"notice\":\"returns royalty info for EIP2981 supporting marketplaces\"},\"setRoyaltyPercent(uint256)\":{\"notice\":\"sets the royalty percentage for EIP2981 supporting marketplaces\"}},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/MonaArtists/MonaArtistContract.sol\":\"MonaArtistContract\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/Address.sol\":{\"keccak256\":\"0x7bc6d6cd39a97a8403c25f63ec52643e52b8bf983999af922235f696ea3fd9b7\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://d603fe3bbd48a222efd64827b531d45ea022b3a7548d34360fef9896388deb20\",\"dweb:/ipfs/QmXN5qLkoqDifidMUSPuQsWJ7cdu4Z8mgTEV2GKH8qFwhX\"]},\"project:/contracts/IERC165.sol\":{\"keccak256\":\"0x392534e30e38b9d4ce1d4ccc80a6785c8c8cc8e436dc2e42464b413d3e5ffffc\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://fe5da744f2219fbfae6fdeed6c7d24d317316f940ff3918e0cc9c9f986ea97bf\",\"dweb:/ipfs/QmWrFs97g7W2ZucWKspL1qPAmSoGDEQUrt1WoVBt4aaZjF\"]},\"project:/contracts/IERC721.sol\":{\"keccak256\":\"0x552a94a895c57153816ad8e4738409d617e2decccb8748768b222ef443397b63\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://30e137930d01f119bd134bf8914892712c4e8b2fddffe2181bff4d589f404e2f\",\"dweb:/ipfs/QmW7sgP5eJZryhjTCe9LAPEx1tBBQ9sE5WRi6JCAYRnEe4\"]},\"project:/contracts/MonaArtists/ERC165.sol\":{\"keccak256\":\"0x97c1f0baefefc04f233d808a37d6053519c76bf04d5f6f3ac8441e728b765ee6\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://0f621c44b8066bf9e13865f0ef30f230bab933001211b80d9e10729aba2c66d0\",\"dweb:/ipfs/QmNuHKotais2VrAaD5XDynyMg8NBXdKaCjA7D6E4ohsj5k\"]},\"project:/contracts/MonaArtists/ERC721.sol\":{\"keccak256\":\"0x7e11442c342965f0255f80e5bc73417d78c50bb263952a4ab6ac5f6f34dd7c85\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://d7dab950bc4c45d0720696a73996e6a30b9ecb4adccfcd4a30a7348693b2c4ad\",\"dweb:/ipfs/QmdeCgZ6WjV1jsbvDEnUpfwWwGa8ye6w5rZbSo1LsqsWHC\"]},\"project:/contracts/MonaArtists/IERC2981.sol\":{\"keccak256\":\"0x359898f2fd472ec0ec30724b2ae639cd5a8cdc1d150ef044a66d0f8c5448bc31\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://eeb7c1f9c760328db3162f7d7e10b2cf882512616e7371e3de5318deaa125b5d\",\"dweb:/ipfs/QmWqrcwpvdaYnGvFRXgA9QTbJCkXD4eXrCxPLsbpLi9dfh\"]},\"project:/contracts/MonaArtists/IERC721Metadata.sol\":{\"keccak256\":\"0xb2c22614e45abc782baa10b4c90ae2b6f0b2374990fc26ab1c76f135ddd0e259\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://1dca44c94dbd27a74bf39986bba9aa17dc288ed57905a8501668f9a00cd942ec\",\"dweb:/ipfs/QmZegszeKoc2mNrEaXptY9Suaopy95fZaAPrYxA7U6gfdL\"]},\"project:/contracts/MonaArtists/IERC721Receiver.sol\":{\"keccak256\":\"0x3e4d35ce1dcd96c3548f417aa39c84be1a55d2d65c106b7f615eac47729777e1\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://e519cf493d50f5b232877b56cec4770ceb6df22a166cb9ff889f15e7c8f0e38c\",\"dweb:/ipfs/QmbnJ172RmF2WTFQDsk6vcU28CBXSa1jvERuPW87DwGR1v\"]},\"project:/contracts/MonaArtists/Initializable.sol\":{\"keccak256\":\"0xf8984bb14ca1499bbe99e2c204e7f1e4308ce06a59a69e1b2afb02293b897eb0\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://d0ce2937e674072a8ac9b3107e5b249f1acad4d2357fc2644e8e61368378f96d\",\"dweb:/ipfs/QmPSGTENXpGm29fXUBHxJxE6p7JEc4E7bLdVGg8YVUxcZc\"]},\"project:/contracts/MonaArtists/MonaArtistContract.sol\":{\"keccak256\":\"0x680618d4d1481eeb1f3c3e89256fb615666ddec144c0ba99e8f557c246415452\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://884d1898b5618a43ac5191eae81fdb4aa1409c8d14453cfb0da1dc57ed5092c3\",\"dweb:/ipfs/QmWQYAZY8xKAxbaUgK4DZFy6vkPStpYAHsQnL14YbG6VHb\"]},\"project:/contracts/MonaArtists/OwnableInitializable.sol\":{\"keccak256\":\"0x4462fefcf2542d5f7eba1adb2471b62970a27bb5adcc1b6bb36a6201d47c17f0\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://b584d71682518fcb04542668a2f2e2cf1ec5323cd9b14e827a88be0aa71b7369\",\"dweb:/ipfs/QmcDpymkbhJeG3sYt5xqkToQXb1kGhVKYVTxJF8xN4B16U\"]},\"project:/contracts/Strings.sol\":{\"keccak256\":\"0x0e2dd92f0f79c82d6ecd2f1d4382aa969368fd333abaf3d538e2fd6046c904c4\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://67f19147df0a15a8448f2bdde513ef7ae17d909da79e8c2fa55aac0b72aac548\",\"dweb:/ipfs/QmSVVvHsBQFTHkuD8uh2sw8Eex9KLDbtVC1yAmSZrZvaw3\"]}},\"version\":1}",
@@ -20382,15 +20397,22 @@
     "version": "0.8.0+commit.c7dfd78e.Emscripten.clang"
   },
   "networks": {
+    "1": {
+      "events": {},
+      "links": {},
+      "address": "0x0000B765a79Ba3a4b819Cc873166b5bb8F6c508c",
+      "transactionHash": "0x07b3731df21ef4985ff6b679c81211ca2b83b945d9e2b84daf6524659cc9c0f7"
+    },
     "4": {
       "events": {},
       "links": {},
-      "address": "0x0000C4034B12a294757344728aC64924dA994deE",
-      "transactionHash": "0x052c0b21f02a1734a0bf8820d107974637b081d6feb97c33fcd80aa2437bf43c"
+      "address": "0x00002da39e2235D3857080453c0e889585d04d4C",
+      "transactionHash": "0x25b8d001421b9f1a3fe88f73304ad7f1eb46aa27a684f308fda043d44b1bd31c"
     }
   },
   "schemaVersion": "3.4.5",
-  "updatedAt": "2022-04-11T02:37:09.181Z",
+  "updatedAt": "2022-04-11T11:14:22.749Z",
+  "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",
     "methods": {

@@ -36,7 +36,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -49,7 +50,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [
@@ -95,7 +97,8 @@
       "name": "clone",
       "outputs": [],
       "stateMutability": "payable",
-      "type": "function"
+      "type": "function",
+      "payable": true
     },
     {
       "inputs": [
@@ -114,7 +117,8 @@
         }
       ],
       "stateMutability": "pure",
-      "type": "function"
+      "type": "function",
+      "constant": true
     }
   ],
   "metadata": "{\"compiler\":{\"version\":\"0.8.0+commit.c7dfd78e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_implementation\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"instance\",\"type\":\"address\"}],\"name\":\"Cloned\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"bytes\",\"name\":\"signature\",\"type\":\"bytes\"}],\"name\":\"clone\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"addr\",\"type\":\"address\"}],\"name\":\"getMsgHash\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"implementation\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"renounceOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newImplementation\",\"type\":\"address\"}],\"name\":\"setImplementation\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"transferOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/cloner/MonaArtistContractFactory.sol\":\"MonaArtistContractFactory\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/ECDSA.sol\":{\"keccak256\":\"0xca412d85ae447aed4bad20127b5b63f5c8791b2a2f8855687d25f3e85b1d1361\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://a730f3bf93cb6da83dc36e5843f5b7bcc080d0f9dd7446dab9f7e9355b255105\",\"dweb:/ipfs/Qmcgo8f2AoQiDAbaRhJYqr46u3Sp2ayhUxA8tDuNp4Jgra\"]},\"project:/contracts/Strings.sol\":{\"keccak256\":\"0x0e2dd92f0f79c82d6ecd2f1d4382aa969368fd333abaf3d538e2fd6046c904c4\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://67f19147df0a15a8448f2bdde513ef7ae17d909da79e8c2fa55aac0b72aac548\",\"dweb:/ipfs/QmSVVvHsBQFTHkuD8uh2sw8Eex9KLDbtVC1yAmSZrZvaw3\"]},\"project:/contracts/cloner/Cloner.sol\":{\"keccak256\":\"0x103edfaa7d6d3f34e3a08c9fbc8b47e2fa29911b62f8daf1a85b217d3348a73c\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://003775cb5e51c601c6a7b8e5a9c893c71b33494784e6ca0e1eca43b3b91a6d64\",\"dweb:/ipfs/QmeNrPmHu833mSXErndwmCnWrc6meb7xqpwXZV1gPbjnYF\"]},\"project:/contracts/cloner/MonaArtistContractFactory.sol\":{\"keccak256\":\"0x1a2ff14f1cdde58dc05e312b139c90d9a95c507a3a0ae31160bc0f9599411d2f\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://08be4f8217c1fcb764055328fc74e0724aab477a220c1cfac11410a07649748a\",\"dweb:/ipfs/QmTPwe77hN12scgaYJoz8BLa5UoMhNVKKXeoXYJbBTC2zJ\"]}},\"version\":1}",
@@ -6881,15 +6885,22 @@
     "version": "0.8.0+commit.c7dfd78e.Emscripten.clang"
   },
   "networks": {
+    "1": {
+      "events": {},
+      "links": {},
+      "address": "0x3537fC8f66Fc4DD38e201C41D61B6386e355Eed2",
+      "transactionHash": "0x851c9c36db1b5ea74119556d7895254e1d95dc860117a82b4f3ca253d6d74085"
+    },
     "4": {
       "events": {},
       "links": {},
-      "address": "0x13E50B31A22b265C778543Ec6B66B086A215FF55",
-      "transactionHash": "0x4837ac5647a39cd6e9bb38bc3d0c163df7bd04bd7d6d004848de0914c536275f"
+      "address": "0xAf34803032502a255c15915a898C0AC8F197b5B7",
+      "transactionHash": "0x728d22cc9bad855aece72b19f86f38ee3f582be3abb1d601832e82cb91ae6b7b"
     }
   },
   "schemaVersion": "3.4.5",
-  "updatedAt": "2022-04-11T02:37:09.371Z",
+  "updatedAt": "2022-04-11T11:14:22.787Z",
+  "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",
     "methods": {},
