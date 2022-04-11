@@ -10,43 +10,51 @@ contract MonaArtistContract is Initializable, IERC2981, ERC721 {
 
     address private EIP2981RoyaltyAddress;
 
-    address public monaExchangeAddress;
+    address public monaGalleryAddress;
 
     address public newContract;
 
     function initialize(
         uint royalty, 
         address royaltyAddress,
-        address _monaExchangeAddress,
+        address _monaGalleryAddress,
         address _openseaProxyRegistry,
         string memory name_
     ) external initializer {
         __Ownable_init();
         __ERC721_init(_openseaProxyRegistry, name_);
-        __MonaArtistContract_init(royalty, royaltyAddress, _monaExchangeAddress);
+        __MonaArtistContract_init(royalty, royaltyAddress, _monaGalleryAddress);
     }
 
     function __MonaArtistContract_init(
         uint royalty,
         address royaltyAddress,
-        address _monaExchangeAddress
+        address _monaGalleryAddress
     ) internal onlyInitializing {
         require(royalty <= 1000, "Can't go over 10 percent royalty!");
         require(royaltyAddress != address(0), "Royalty address cannot be null!");
-        require(_monaExchangeAddress != address(0), "Mona exchange address cannot be null!");
+        require(_monaGalleryAddress != address(0), "Mona exchange address cannot be null!");
 
         EIP2981RoyaltyAddress = royaltyAddress;
         EIP2981RoyaltyPercent = royalty;
-        monaExchangeAddress = _monaExchangeAddress;
+        monaGalleryAddress = _monaGalleryAddress;
     }
 
     function mint(string memory uri) external onlyOwner {
-        _mint(monaExchangeAddress, uri);
+        _mint(monaGalleryAddress, uri);
     }
 
     function _burnToMigrate(uint tokenId) external {
         require(msg.sender == newContract);
         _burn(tokenId);
+    }
+
+    function setMonaGalleryAddress(address addr) external onlyOwner {
+        monaGalleryAddress = addr;
+    }
+
+    function setNewContractAddress(address addr) external onlyOwner {
+        newContract = addr;
     }
 
     /**
