@@ -255,11 +255,6 @@ contract ERC721 is ERC165, IERC721, IERC721Metadata, Initializable, OwnableIniti
         emit Transfer(address(0), to, tokenId);
         
         totalSupply++;
-
-        require(
-            _checkOnERC721Received(address(0), to, tokenId, ""),
-            "ERC721: transfer to non ERC721Receiver implementer"
-        );
     }
 
     function _burn(uint256 tokenId) internal virtual {
