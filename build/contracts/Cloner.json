@@ -15,15 +15,15 @@
     "absolutePath": "project:/contracts/cloner/Cloner.sol",
     "exportedSymbols": {
       "Cloner": [
-        3104
+        3115
       ]
     },
-    "id": 3105,
+    "id": 3116,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 3073,
+        "id": 3084,
         "literals": [
           "solidity",
           "^",
@@ -39,37 +39,37 @@
         "contractDependencies": [],
         "contractKind": "library",
         "documentation": {
-          "id": 3074,
+          "id": 3085,
           "nodeType": "StructuredDocumentation",
           "src": "62:665:15",
           "text": " @dev https://eips.ethereum.org/EIPS/eip-1167[EIP 1167] is a standard for\n deploying minimal proxy contracts, also known as \"clones\".\n > To simply and cheaply clone contract functionality in an immutable way, this standard specifies\n > a minimal bytecode implementation that delegates all calls to a known, fixed address.\n The library includes functions to deploy a proxy using either `create` (traditional deployment) or `create2`\n (salted deterministic deployment). It also includes functions to predict the addresses of clones deployed using the\n deterministic method.\n uses a vanity address starting with four zeros "
         },
         "fullyImplemented": true,
-        "id": 3104,
+        "id": 3115,
         "linearizedBaseContracts": [
-          3104
+          3115
         ],
         "name": "Cloner",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "body": {
-              "id": 3102,
+              "id": 3113,
               "nodeType": "Block",
               "src": "1034:495:15",
               "statements": [
                 {
                   "assignments": [
-                    3083
+                    3094
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 3083,
+                      "id": 3094,
                       "mutability": "mutable",
                       "name": "target",
                       "nodeType": "VariableDeclaration",
-                      "scope": 3102,
+                      "scope": 3113,
                       "src": "1045:14:15",
                       "stateVariable": false,
                       "storageLocation": "default",
@@ -78,7 +78,7 @@
                         "typeString": "bytes20"
                       },
                       "typeName": {
-                        "id": 3082,
+                        "id": 3093,
                         "name": "bytes20",
                         "nodeType": "ElementaryTypeName",
                         "src": "1045:7:15",
@@ -90,13 +90,13 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 3090,
+                  "id": 3101,
                   "initialValue": {
                     "commonType": {
                       "typeIdentifier": "t_bytes20",
                       "typeString": "bytes20"
                     },
-                    "id": 3089,
+                    "id": 3100,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -104,11 +104,11 @@
                     "leftExpression": {
                       "arguments": [
                         {
-                          "id": 3086,
+                          "id": 3097,
                           "name": "implementation",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 3077,
+                          "referencedDeclaration": 3088,
                           "src": "1070:14:15",
                           "typeDescriptions": {
                             "typeIdentifier": "t_address",
@@ -123,7 +123,7 @@
                             "typeString": "address"
                           }
                         ],
-                        "id": 3085,
+                        "id": 3096,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -135,14 +135,14 @@
                           "typeString": "type(bytes20)"
                         },
                         "typeName": {
-                          "id": 3084,
+                          "id": 3095,
                           "name": "bytes20",
                           "nodeType": "ElementaryTypeName",
                           "src": "1062:7:15",
                           "typeDescriptions": {}
                         }
                       },
-                      "id": 3087,
+                      "id": 3098,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -161,7 +161,7 @@
                     "operator": "<<",
                     "rightExpression": {
                       "hexValue": "3136",
-                      "id": 3088,
+                      "id": 3099,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -380,21 +380,21 @@
                   "evmVersion": "istanbul",
                   "externalReferences": [
                     {
-                      "declaration": 3080,
+                      "declaration": 3091,
                       "isOffset": false,
                       "isSlot": false,
                       "src": "1409:8:15",
                       "valueSize": 1
                     },
                     {
-                      "declaration": 3083,
+                      "declaration": 3094,
                       "isOffset": false,
                       "isSlot": false,
                       "src": "1282:6:15",
                       "valueSize": 1
                     }
                   ],
-                  "id": 3091,
+                  "id": 3102,
                   "nodeType": "InlineAssembly",
                   "src": "1100:354:15"
                 },
@@ -406,17 +406,17 @@
                           "typeIdentifier": "t_address",
                           "typeString": "address"
                         },
-                        "id": 3098,
+                        "id": 3109,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
                         "lValueRequested": false,
                         "leftExpression": {
-                          "id": 3093,
+                          "id": 3104,
                           "name": "instance",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 3080,
+                          "referencedDeclaration": 3091,
                           "src": "1472:8:15",
                           "typeDescriptions": {
                             "typeIdentifier": "t_address",
@@ -429,7 +429,7 @@
                           "arguments": [
                             {
                               "hexValue": "30",
-                              "id": 3096,
+                              "id": 3107,
                               "isConstant": false,
                               "isLValue": false,
                               "isPure": true,
@@ -451,7 +451,7 @@
                                 "typeString": "int_const 0"
                               }
                             ],
-                            "id": 3095,
+                            "id": 3106,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": true,
@@ -463,14 +463,14 @@
                               "typeString": "type(address)"
                             },
                             "typeName": {
-                              "id": 3094,
+                              "id": 3105,
                               "name": "address",
                               "nodeType": "ElementaryTypeName",
                               "src": "1484:7:15",
                               "typeDescriptions": {}
                             }
                           },
-                          "id": 3097,
+                          "id": 3108,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
@@ -493,7 +493,7 @@
                       },
                       {
                         "hexValue": "455243313136373a20637265617465206661696c6564",
-                        "id": 3099,
+                        "id": 3110,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -519,7 +519,7 @@
                           "typeString": "literal_string \"ERC1167: create failed\""
                         }
                       ],
-                      "id": 3092,
+                      "id": 3103,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
@@ -533,7 +533,7 @@
                         "typeString": "function (bool,string memory) pure"
                       }
                     },
-                    "id": 3100,
+                    "id": 3111,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -548,35 +548,35 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 3101,
+                  "id": 3112,
                   "nodeType": "ExpressionStatement",
                   "src": "1464:57:15"
                 }
               ]
             },
             "documentation": {
-              "id": 3075,
+              "id": 3086,
               "nodeType": "StructuredDocumentation",
               "src": "751:196:15",
               "text": " @dev Deploys and returns the address of a clone that mimics the behaviour of `implementation`.\n This function uses the create opcode, which should never revert."
             },
-            "id": 3103,
+            "id": 3114,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "createClone",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 3078,
+              "id": 3089,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 3077,
+                  "id": 3088,
                   "mutability": "mutable",
                   "name": "implementation",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3103,
+                  "scope": 3114,
                   "src": "974:22:15",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -585,7 +585,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 3076,
+                    "id": 3087,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "974:7:15",
@@ -601,16 +601,16 @@
               "src": "973:24:15"
             },
             "returnParameters": {
-              "id": 3081,
+              "id": 3092,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 3080,
+                  "id": 3091,
                   "mutability": "mutable",
                   "name": "instance",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3103,
+                  "scope": 3114,
                   "src": "1016:16:15",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -619,7 +619,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 3079,
+                    "id": 3090,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "1016:7:15",
@@ -634,14 +634,14 @@
               ],
               "src": "1015:18:15"
             },
-            "scope": 3104,
+            "scope": 3115,
             "src": "953:576:15",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "internal"
           }
         ],
-        "scope": 3105,
+        "scope": 3116,
         "src": "729:803:15"
       }
     ],
@@ -651,15 +651,15 @@
     "absolutePath": "project:/contracts/cloner/Cloner.sol",
     "exportedSymbols": {
       "Cloner": [
-        3104
+        3115
       ]
     },
-    "id": 3105,
+    "id": 3116,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 3073,
+        "id": 3084,
         "literals": [
           "solidity",
           "^",
@@ -675,37 +675,37 @@
         "contractDependencies": [],
         "contractKind": "library",
         "documentation": {
-          "id": 3074,
+          "id": 3085,
           "nodeType": "StructuredDocumentation",
           "src": "62:665:15",
           "text": " @dev https://eips.ethereum.org/EIPS/eip-1167[EIP 1167] is a standard for\n deploying minimal proxy contracts, also known as \"clones\".\n > To simply and cheaply clone contract functionality in an immutable way, this standard specifies\n > a minimal bytecode implementation that delegates all calls to a known, fixed address.\n The library includes functions to deploy a proxy using either `create` (traditional deployment) or `create2`\n (salted deterministic deployment). It also includes functions to predict the addresses of clones deployed using the\n deterministic method.\n uses a vanity address starting with four zeros "
         },
         "fullyImplemented": true,
-        "id": 3104,
+        "id": 3115,
         "linearizedBaseContracts": [
-          3104
+          3115
         ],
         "name": "Cloner",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "body": {
-              "id": 3102,
+              "id": 3113,
               "nodeType": "Block",
               "src": "1034:495:15",
               "statements": [
                 {
                   "assignments": [
-                    3083
+                    3094
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 3083,
+                      "id": 3094,
                       "mutability": "mutable",
                       "name": "target",
                       "nodeType": "VariableDeclaration",
-                      "scope": 3102,
+                      "scope": 3113,
                       "src": "1045:14:15",
                       "stateVariable": false,
                       "storageLocation": "default",
@@ -714,7 +714,7 @@
                         "typeString": "bytes20"
                       },
                       "typeName": {
-                        "id": 3082,
+                        "id": 3093,
                         "name": "bytes20",
                         "nodeType": "ElementaryTypeName",
                         "src": "1045:7:15",
@@ -726,13 +726,13 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 3090,
+                  "id": 3101,
                   "initialValue": {
                     "commonType": {
                       "typeIdentifier": "t_bytes20",
                       "typeString": "bytes20"
                     },
-                    "id": 3089,
+                    "id": 3100,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -740,11 +740,11 @@
                     "leftExpression": {
                       "arguments": [
                         {
-                          "id": 3086,
+                          "id": 3097,
                           "name": "implementation",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 3077,
+                          "referencedDeclaration": 3088,
                           "src": "1070:14:15",
                           "typeDescriptions": {
                             "typeIdentifier": "t_address",
@@ -759,7 +759,7 @@
                             "typeString": "address"
                           }
                         ],
-                        "id": 3085,
+                        "id": 3096,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -771,14 +771,14 @@
                           "typeString": "type(bytes20)"
                         },
                         "typeName": {
-                          "id": 3084,
+                          "id": 3095,
                           "name": "bytes20",
                           "nodeType": "ElementaryTypeName",
                           "src": "1062:7:15",
                           "typeDescriptions": {}
                         }
                       },
-                      "id": 3087,
+                      "id": 3098,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -797,7 +797,7 @@
                     "operator": "<<",
                     "rightExpression": {
                       "hexValue": "3136",
-                      "id": 3088,
+                      "id": 3099,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -1016,21 +1016,21 @@
                   "evmVersion": "istanbul",
                   "externalReferences": [
                     {
-                      "declaration": 3080,
+                      "declaration": 3091,
                       "isOffset": false,
                       "isSlot": false,
                       "src": "1409:8:15",
                       "valueSize": 1
                     },
                     {
-                      "declaration": 3083,
+                      "declaration": 3094,
                       "isOffset": false,
                       "isSlot": false,
                       "src": "1282:6:15",
                       "valueSize": 1
                     }
                   ],
-                  "id": 3091,
+                  "id": 3102,
                   "nodeType": "InlineAssembly",
                   "src": "1100:354:15"
                 },
@@ -1042,17 +1042,17 @@
                           "typeIdentifier": "t_address",
                           "typeString": "address"
                         },
-                        "id": 3098,
+                        "id": 3109,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
                         "lValueRequested": false,
                         "leftExpression": {
-                          "id": 3093,
+                          "id": 3104,
                           "name": "instance",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 3080,
+                          "referencedDeclaration": 3091,
                           "src": "1472:8:15",
                           "typeDescriptions": {
                             "typeIdentifier": "t_address",
@@ -1065,7 +1065,7 @@
                           "arguments": [
                             {
                               "hexValue": "30",
-                              "id": 3096,
+                              "id": 3107,
                               "isConstant": false,
                               "isLValue": false,
                               "isPure": true,
@@ -1087,7 +1087,7 @@
                                 "typeString": "int_const 0"
                               }
                             ],
-                            "id": 3095,
+                            "id": 3106,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": true,
@@ -1099,14 +1099,14 @@
                               "typeString": "type(address)"
                             },
                             "typeName": {
-                              "id": 3094,
+                              "id": 3105,
                               "name": "address",
                               "nodeType": "ElementaryTypeName",
                               "src": "1484:7:15",
                               "typeDescriptions": {}
                             }
                           },
-                          "id": 3097,
+                          "id": 3108,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
@@ -1129,7 +1129,7 @@
                       },
                       {
                         "hexValue": "455243313136373a20637265617465206661696c6564",
-                        "id": 3099,
+                        "id": 3110,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -1155,7 +1155,7 @@
                           "typeString": "literal_string \"ERC1167: create failed\""
                         }
                       ],
-                      "id": 3092,
+                      "id": 3103,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
@@ -1169,7 +1169,7 @@
                         "typeString": "function (bool,string memory) pure"
                       }
                     },
-                    "id": 3100,
+                    "id": 3111,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1184,35 +1184,35 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 3101,
+                  "id": 3112,
                   "nodeType": "ExpressionStatement",
                   "src": "1464:57:15"
                 }
               ]
             },
             "documentation": {
-              "id": 3075,
+              "id": 3086,
               "nodeType": "StructuredDocumentation",
               "src": "751:196:15",
               "text": " @dev Deploys and returns the address of a clone that mimics the behaviour of `implementation`.\n This function uses the create opcode, which should never revert."
             },
-            "id": 3103,
+            "id": 3114,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "createClone",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 3078,
+              "id": 3089,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 3077,
+                  "id": 3088,
                   "mutability": "mutable",
                   "name": "implementation",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3103,
+                  "scope": 3114,
                   "src": "974:22:15",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1221,7 +1221,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 3076,
+                    "id": 3087,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "974:7:15",
@@ -1237,16 +1237,16 @@
               "src": "973:24:15"
             },
             "returnParameters": {
-              "id": 3081,
+              "id": 3092,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 3080,
+                  "id": 3091,
                   "mutability": "mutable",
                   "name": "instance",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3103,
+                  "scope": 3114,
                   "src": "1016:16:15",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1255,7 +1255,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 3079,
+                    "id": 3090,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "1016:7:15",
@@ -1270,14 +1270,14 @@
               ],
               "src": "1015:18:15"
             },
-            "scope": 3104,
+            "scope": 3115,
             "src": "953:576:15",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "internal"
           }
         ],
-        "scope": 3105,
+        "scope": 3116,
         "src": "729:803:15"
       }
     ],
@@ -1289,7 +1289,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.5",
-  "updatedAt": "2022-04-10T16:52:22.555Z",
+  "updatedAt": "2022-04-11T02:37:09.361Z",
   "devdoc": {
     "details": "https://eips.ethereum.org/EIPS/eip-1167[EIP 1167] is a standard for deploying minimal proxy contracts, also known as \"clones\". > To simply and cheaply clone contract functionality in an immutable way, this standard specifies > a minimal bytecode implementation that delegates all calls to a known, fixed address. The library includes functions to deploy a proxy using either `create` (traditional deployment) or `create2` (salted deterministic deployment). It also includes functions to predict the addresses of clones deployed using the deterministic method. uses a vanity address starting with four zeros ",
     "kind": "dev",
