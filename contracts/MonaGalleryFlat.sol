@@ -413,6 +413,8 @@ contract MonaGallery is Ownable {
 
     mapping(bytes => bool) usedSigs;
 
+    event NftSold(address to, address tokenContract, uint tokenId, uint price);
+
     function buyNFT(
         address tokenContract,
         address artistAddr,
@@ -459,13 +461,15 @@ contract MonaGallery is Ownable {
 
         eth = (msg.value - artistAmount);
         uint f5 = eth / 4;
-        (success, ) = payable(0xAF2992d490E78B94113D44d63E10D1E668b69984).call{value: f5, gas: 3000}(""); // F5
+        (success, ) = payable(0xAF2992d490E78B94113D44d63E10D1E668b69984).call{value: f5, gas: 2300}(""); // F5
         require(success, "Failed To Send Ether to F5! User has reverted!");
-        (success, ) = payable(0x077b813889659Ad54E1538A380584E7a9399ff8F).call{value: eth - f5, gas: 3000}(""); // Mona
+        (success, ) = payable(0x077b813889659Ad54E1538A380584E7a9399ff8F).call{value: eth - f5, gas: 2300}(""); // Mona
         require(success, "Failed To Send Ether to Mona! User has reverted!");
 
         // send NFT
         IERC721(tokenContract).safeTransferFrom(contractOwner, msg.sender, tokenId);
+
+        emit NftSold(msg.sender, tokenContract, tokenId, price);
     }
 
     function cancelListing(bytes calldata listingSig) external onlyOwner {
@@ -485,12 +489,6 @@ contract MonaGallery is Ownable {
     function transferERC20(IERC20 tokenContract) external onlyOwner {
         require(tokenContract.transfer(msg.sender, tokenContract.balanceOf(msg.sender)), "Transfer Failed!");
     }
-
-/*
-    function getMsgOrderHash(Order calldata order) external pure returns(bytes32) {
-        return keccak256(abi.encodePacked(order.tokenContract, order.expirationTimestamp, order.tokenId, order.price, order.nonce));
-    }
-*/
 
     /**
      * @dev in case eth gets locked in the contract
