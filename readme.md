@@ -1,5 +1,6 @@
 # listing json example:
 
+database example:
 ```json
 {
     [
@@ -10,8 +11,7 @@
         "artist_percentage":<number>,
         "expiration_timestamp":<number>,
         "nonce":<number>,
-        "signature":""
+        "sig":""
     ]
 }
-
 ```
