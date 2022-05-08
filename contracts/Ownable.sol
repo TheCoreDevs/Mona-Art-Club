@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 // OpenZeppelin Contracts v4.4.1 (access/Ownable.sol)
 
-pragma solidity ^0.8.0;
+pragma solidity 0.8.0;
 
 /**
  * @dev Contract module which provides a basic access control mechanism, where
@@ -49,7 +49,7 @@ abstract contract Ownable {
      * NOTE: Renouncing ownership will leave the contract without an owner,
      * thereby removing any functionality that is only available to the owner.
      */
-    function renounceOwnership() public virtual onlyOwner {
+    function renounceOwnership() external virtual onlyOwner {
         _transferOwnership(address(0));
     }
 
@@ -57,7 +57,7 @@ abstract contract Ownable {
      * @dev Transfers ownership of the contract to a new account (`newOwner`).
      * Can only be called by the current owner.
      */
-    function transferOwnership(address newOwner) public virtual onlyOwner {
+    function transferOwnership(address newOwner) external virtual onlyOwner {
         require(newOwner != address(0), "Ownable: new owner is the zero address");
         _transferOwnership(newOwner);
     }

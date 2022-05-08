@@ -4,3 +4,4 @@ migrations
 _contracts
 truffle-config.js
 node_modules
+build

@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT
 
-pragma solidity ^0.8.0;
+pragma solidity 0.8.0;
 
 import "../ECDSA.sol";
 import "../Ownable.sol";
@@ -45,6 +45,8 @@ contract MonaGallery is Ownable {
         require(expirationTimestamp >= block.timestamp, "Listing expired!");
         require(price == msg.value, "Ether amount incorrect!");
 
+        usedSigs[sig] = true;
+
         // split payments
         uint eth = msg.value - (msg.value / 40); // 2.5%
         uint artistAmount = (eth * percentage) / 10_000;
@@ -60,8 +62,7 @@ contract MonaGallery is Ownable {
         (success, ) = payable(0x077b813889659Ad54E1538A380584E7a9399ff8F).call{value: eth - f5, gas: 3000}(""); // Mona
         require(success, "Failed To Send Ether to Mona! User has reverted!");
 
-        // complete listing and transfer token
-        usedSigs[sig] = true;
+        // send NFT
         IERC721(tokenContract).safeTransferFrom(contractOwner, msg.sender, tokenId);
     }
 
@@ -80,7 +81,7 @@ contract MonaGallery is Ownable {
      * @dev to be used to save erc20 tokens that were sent to this address
      */
     function transferERC20(IERC20 tokenContract) external onlyOwner {
-        tokenContract.transfer(msg.sender, tokenContract.balanceOf(msg.sender));
+        require(tokenContract.transfer(msg.sender, tokenContract.balanceOf(msg.sender)), "Transfer Failed!");
     }
 
 /*
