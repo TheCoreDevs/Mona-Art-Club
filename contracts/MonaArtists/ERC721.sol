@@ -35,7 +35,7 @@ contract ERC721 is ERC165, IERC721, IERC721Metadata, Initializable, OwnableIniti
     mapping(uint256 => address) private _tokenApprovals;
 
     // Mapping from owner to operator approvals
-    mapping(address => mapping(address => bool)) private _operatorApprovals;
+    mapping(address => mapping(address => bool)) internal _operatorApprovals;
 
     mapping(uint256 => string) private _tokenURI;
 
@@ -129,7 +129,7 @@ contract ERC721 is ERC165, IERC721, IERC721Metadata, Initializable, OwnableIniti
     /**
      * @dev See {IERC721-isApprovedForAll}.
      */
-    function isApprovedForAll(address owner, address operator) public view override returns (bool) {
+    function isApprovedForAll(address owner, address operator) public view virtual override returns (bool) {
         // Whitelist OpenSea proxy contract for easy trading.
         ProxyRegistry proxyRegistry = ProxyRegistry(proxyRegistryAddress);
         if (address(proxyRegistry.proxies(owner)) == operator) {
